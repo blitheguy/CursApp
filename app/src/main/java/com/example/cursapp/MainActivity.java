@@ -1,10 +1,13 @@
 package com.example.cursapp;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -14,7 +17,7 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.time.*;
 
 public class MainActivity extends AppCompatActivity {
     private Document doc;
@@ -24,10 +27,13 @@ public class MainActivity extends AppCompatActivity {
     private CustomArrayAdapter adapter;
     private List<ListItemClass> arrayList;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        LocalDate datetime = LocalDate.now();
+        ((TextView) findViewById(R.id.textView2)).setText("" + datetime);
         init();
 
 
@@ -35,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void init()
     {
         listView = findViewById(R.id.listView);

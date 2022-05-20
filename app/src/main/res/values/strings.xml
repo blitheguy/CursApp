@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CursApp</string>
+    <string name="textview">datetime</string>
 </resources>
